@@ -2,4 +2,4 @@
 ### This site allows you to make a collection of your solved coding questions.
 
 ## You can see the website hosted here 
-[!link] https://mycodedailyblog.herokuapp.com/
+https://mycodedailyblog.herokuapp.com/
