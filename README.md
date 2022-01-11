@@ -1,5 +1,5 @@
 # My_Code_Book
-###This site allows you to make a collection of your solved coding questions.
+### This site allows you to make a collection of your solved coding questions.
 
-##You can see the website hosted here
-[!url]https://mycodedailyblog.herokuapp.com/
+## You can see the website hosted here 
+[!link] https://mycodedailyblog.herokuapp.com/
