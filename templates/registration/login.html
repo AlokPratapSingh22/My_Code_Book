@@ -1,0 +1,23 @@
+{% extends 'registration/user.html' %} {% block signIn %}
+
+<form method="post" class="sign-In-form" autocomplete="off">
+  {% csrf_token %}
+  <h2 class="title">Sign In</h2>
+  <div class="input-field">
+    <i class="fas fa-user"></i>
+    <input type="text" name="username" placeholder="Username" id="id_username" />
+  </div>
+  <div class="input-field">
+    <i class="fas fa-key"></i>
+    <input type="password" name="password" placeholder="Password" id="id_password" />
+  </div>
+
+  <input class="rbtn" type="submit" value="Sign In" />
+  <div class="instead">
+    <p class="text-center">
+      If you already have an account,
+      <a class="instead-link" href="{% url 'register' %}">Register</a> instead.
+    </p>
+  </div>
+</form>
+{% endblock signIn %}

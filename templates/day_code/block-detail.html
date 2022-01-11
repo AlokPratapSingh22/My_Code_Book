@@ -1,0 +1,62 @@
+{% extends 'day_code/base.html' %}
+{% block bodyblock %}
+    <section class="glass">
+        <div class="headboard">
+            <div class="head">
+                <h1 class="title-text fs-1">{{codeblock}}</h1>
+            </div>            
+        </div>
+        <div class="contents">
+            <div class="desc fst-italic fs-4">
+                {{codeblock.description}}
+            </div>            
+            <div class="codepage-list ">    
+                <h1 class="codepage-title title-text fs-3 text-black-50 text-decoration-underline">Code Pages</h1>
+                <ul class="codepage-items list-items">
+                    {% for page in codeblock.pages.all %}                
+                    <li>               
+                        <div class="list-item">
+                            <div class="list-title">
+                                <a href="{% url 'day_code:page_detail' pk=page.pk %}" class="detail_page">
+                                    <h2 class="ltitle fst-italic">{{page.title|title}}</h2>
+                                </a>
+                            </div>
+                            
+                            <div class="list-sub">
+                                {{page.create_date}}
+                            </div>
+                            {% if user.is_authenticated %}
+                            <div class="list-edit">
+                                <a href="#">
+                                    <i class="link-danger fas fa-pen"></i>
+                                </a>
+                            </div>
+                            <div class="delete">
+                                <a href="{% url 'day_code:page_remove' pk=page.pk %}">
+                                    <i class="link-danger fas fa-times"></i>
+                                </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="codepage-add">
+                    <a class="link-dark" href="{% url 'day_code:add_page_to_block' pk=codeblock.pk %}">
+                        <i class="fas fa-plus fs-3"></i> 
+                    </a>
+                </div>
+            </div>
+        </div>        
+        {% if user.is_authenticated %}
+        <div class=" footboard control-btns center">
+            <a href="{% url 'day_code:block_edit' pk=codeblock.pk %}" class="edit btn btn-dark">
+                Edit
+            </a>
+            <a href="{% url 'day_code:block_delete' pk=codeblock.pk %}"  class="delete btn btn-outline-danger">
+                Delete
+            </a>
+        </div>
+        {% endif %}
+    </section>
+{% endblock bodyblock %}

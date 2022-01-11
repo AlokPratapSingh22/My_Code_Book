@@ -1,0 +1,32 @@
+{% extends 'registration/user.html' %}
+{% block signUp %}
+<form method='POST' actione="." class="sign-Up-form" id="signup-form"> 
+      {% csrf_token %} 
+      <h2 class="title">Sign Up</h2>
+      <div class="input-field">  
+          <i class="fas fa-user"></i>         
+          {{form.username}} 
+      </div> 
+      <div class="input-field"> 
+          <i class="fas fa-envelope"></i>
+          {{form.email}} 
+      </div> 
+      <div class="input-field"> 
+          <i class="fas fa-key"></i>
+          {{form.password1}} 
+      </div> 
+      <div class="input-field"> 
+          <i class="fa-key fas"></i>
+          {{form.password2}} 
+      </div> 
+      <input type="submit" class="rbtn" value="Signup">   
+      <div class="instead">
+        <p class="text-center">
+          If you already have an account,
+          <a class="instead-link" href="{% url 'login' %}">Login</a> instead.
+        </p>
+      </div>
+</form>
+
+
+{% endblock %}

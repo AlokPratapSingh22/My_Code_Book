@@ -1,0 +1,12 @@
+{% extends 'day_code/base.html' %}
+{% block bodyblock %}
+
+    <form method="post" class="form form-contents">
+        <div class="contents">
+        {% csrf_token %}
+            <p class="form-group form-label text-black fw-bold">Are you sure, you want to delete {{object}}?</p>
+            <input type="submit" value="Yes" class="btn btn-danger form-group">            
+        </div>
+    </form>
+
+{% endblock bodyblock %}

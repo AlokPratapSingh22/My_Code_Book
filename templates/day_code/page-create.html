@@ -1,0 +1,38 @@
+{% extends 'day_code/base.html' %}
+{% block bodyblock %}
+    <section class="glass">
+        <div class="headboard">
+            <div class="head">
+                <h1 class="title-text">New Code Page</h1>
+            </div>
+            <div class="cancel">
+                <button onclick="history.go(-1)" class="btn-close">                    
+                </button>               
+            </div>
+        </div>
+        <div class="contents">
+            <form method="post">            
+                {% csrf_token %}                    
+                <div class="mb-3">
+                    <label for="InputTitle">Title</label> 
+                    {{form.title}}
+                </div>
+                <div class="mb-3">
+                    <label for="questionInput" class="form-label">Question</label>                        
+                    {{form.question}}
+                </div>
+                <div class="mb-3">
+                    <label for="codeInput" class="form-label">Code</label>                        
+                    {{form.code}}
+                </div>
+                <div class="center mb-3">
+                    <input type="submit" value="Save" class="btn btn-outline-dark">
+                </div>                
+            </form>
+        </div>
+        </div>
+    </section>
+    <script>
+        let editor = new MediumEditor('.editable');
+    </script>
+{% endblock %}

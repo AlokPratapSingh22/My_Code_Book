@@ -1,0 +1,22 @@
+{% extends 'day_code/base.html' %}
+{% block bodyblock %}
+<body>
+    <div class="split-screen">
+        <div class="left">
+            <section class="copy">
+                <h1 class="title-text text-decoration-underline">{{page.title|title}}</h1>
+                <div class="question-area">{{page.question|safe}}</div>                
+            </section>
+        </div>
+        <div class="right">
+            <section class="copy">
+                <h2 class="text-decoration-underline">Actual Code</h2>
+                <div class="code-area">
+                    {{page.code|safe|linebreaks}}
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+{% endblock bodyblock %}

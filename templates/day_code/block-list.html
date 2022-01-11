@@ -1,0 +1,36 @@
+{% extends 'day_code/base.html' %}
+{% block bodyblock %}
+<section class="glass">        
+    <div class='container-fluid '>
+        <div class="head">
+            <h1 class="title-text text-decoration-underline fs-1">Blocks</h1>
+        </div>
+        <ul class="list-items">
+        {% for codeblock in codeblock_list %}            
+        <li>               
+            <div class="list-item">
+                <div class="list-title">
+                    <a href="{% url 'day_code:block_detail' pk=codeblock.pk %}" class="detail_page">
+                        <h2 class="mtitle">{{codeblock.title|title}}</h2>
+                    </a>
+                </div>                
+                <div class="list-sub">
+                    {{codeblock.create_date}}
+                </div>
+                <div class="list-edit">
+                    <a href="{% url 'day_code:block_edit' pk=codeblock.pk%}">
+                        <i class="link-danger fas fa-pen"></i>
+                    </a>
+                </div>
+                <div class="delete">
+                    <a href="{% url 'day_code:block_delete' pk=codeblock.pk%}">
+                        <i class="link-danger fas fa-times"></i>
+                    </a>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}
